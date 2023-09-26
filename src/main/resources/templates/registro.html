@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de estudiantes</title>
+</head>
+<body>
+<h1>Ingresa los datos del estudiante</h1>
+
+<form th:action="@{/nuevo}" method="post" th:object="${estudiante}" >
+  <label>Nombre</label>
+  <input type="text" th:field="*{estudianteNombre}"><br>
+
+  <label>Edad</label>
+  <input type="number" th:field="*{estudianteEdad}"><br>
+
+  <label>Email</label>
+  <input type="text" th:field="*{email}"><br>
+
+  <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

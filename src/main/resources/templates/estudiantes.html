@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de estudiantes</title>
+</head>
+<body>
+<a th:href="@{/registro}">Añadir estudiantes</a>
+<h1>Lista de estudiantes registrados</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre del estudiante</th>
+    <th>Edad del estudiante</th>
+    <th>Email del estudiante</th>
+    <th>Botón de borrar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="estudiante: ${estudiantes}">
+    <td th:text="${estudiante.estudianteNombre}"></td>
+    <td th:text="${estudiante.estudianteEdad}"></td>
+    <td th:text="${estudiante.email}"></td>
+    <td>
+      <form th:action="@{'/borrar/' + ${estudiante.estudianteId}}" method="post">
+        <button type="submit">Borrar</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+</body>
+</html>

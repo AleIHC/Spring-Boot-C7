@@ -1,5 +1,7 @@
 package org.generation.cyberpunk.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
@@ -30,14 +32,22 @@ public class Estudiante {
     @NotNull
     private String email;
 
+    //Anotación para indicar relación de muchos a uno
+    @ManyToOne
+    @JoinColumn(name = "curso_id", nullable = false)
+    //Creamos el atributo que corresponde a un objeto de clase Curso
+    private Curso curso;
+
+
     //Constructor vacío y lleno
     public Estudiante() {
     }
 
-    public Estudiante(String estudianteNombre, Integer estudianteEdad, String email) {
+    public Estudiante(String estudianteNombre, Integer estudianteEdad, String email, Curso curso) {
         this.estudianteNombre = estudianteNombre;
         this.estudianteEdad = estudianteEdad;
         this.email = email;
+        this.curso = curso;
     }
 
     //Accesadores y mutadores
@@ -67,5 +77,14 @@ public class Estudiante {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 }
