@@ -32,9 +32,9 @@ public class EstudianteRestController {
 
     //Crear nuevo estudiante
     @PostMapping("/estudiante/nuevo")
-    public Estudiante guardarNuevoEstudiante(@RequestBody Estudiante estudianteNuevo) {//@RequestBody nos permite enviar un objeto en formato JSON
+    public String guardarNuevoEstudiante(@RequestBody Estudiante estudianteNuevo) {//@RequestBody nos permite enviar un objeto en formato JSON
         Estudiante estudianteParaGuardar = estudianteService.guardarEstudiante(estudianteNuevo);
-        return estudianteParaGuardar;
+        return "estudiante guardo exitosamente";
     }
 
     //Para borrar
