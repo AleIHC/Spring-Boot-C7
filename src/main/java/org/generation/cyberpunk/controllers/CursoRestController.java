@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//No es necesario crear controller a menos que estemos trabajando con la vista
 @RestController
 @RequestMapping("/curso")
 public class CursoRestController {

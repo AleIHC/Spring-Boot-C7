@@ -14,6 +14,7 @@ public class Empleo {
 
     private Float salario;
 
+    //Anotación para relación de 1 a 1
     @OneToOne
     private Estudiante estudiante;
 
