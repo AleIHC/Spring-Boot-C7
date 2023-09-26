@@ -24,4 +24,5 @@ public class CursoServiceImpl implements CursoService{
     public List<Curso> enlistarCursos() {
         return cursoRepository.findAll();
     }
+
 }

@@ -24,4 +24,6 @@ public class EmpleoServiceImpl implements EmpleoService {
     public List<Empleo> listaEmpleos() {
         return empleoRepository.findAll();
     }
+
+
 }

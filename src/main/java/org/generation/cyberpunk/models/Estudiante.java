@@ -1,12 +1,16 @@
 package org.generation.cyberpunk.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.List;
 
 
 //Le indicamos que esta es una entidad que debe mapearse a la bdd
@@ -33,11 +37,19 @@ public class Estudiante {
     private String email;
 
     //Anotación para indicar relación de muchos a uno
+    @JsonIgnore//Anotación para ignorar la información del curso en el JSON
     @ManyToOne
     @JoinColumn(name = "curso_id", nullable = false)
     //Creamos el atributo que corresponde a un objeto de clase Curso
     private Curso curso;
 
+    @ManyToMany
+    @JoinTable(
+            name = "estudiantes_hobbies",
+            joinColumns = @JoinColumn(name = "estudiante_id"),
+            inverseJoinColumns = @JoinColumn(name = "hobby_id")
+    )
+    private List<Hobby> hobbiesEstudiante;
 
     //Constructor vacío y lleno
     public Estudiante() {

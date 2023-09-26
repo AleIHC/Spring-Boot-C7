@@ -54,4 +54,21 @@ public class EstudianteRestController {
         return estudianteEditado;
     }
 
+    //Para traer un estudiante por nombre
+    @GetMapping("/estudiante/nombre/{nombre}")
+    public Estudiante buscarPorNombre(@PathVariable String nombre) {
+        Estudiante estudianteElegido = estudianteService.buscarEstudiantePorNombre(nombre);
+        System.out.println(estudianteElegido);
+        return estudianteElegido;
+    }
+
+    //
+    @GetMapping("/estudiante/lista/{curso}")
+    public List<Estudiante> enlistarPorCurso(@PathVariable String curso) {
+        List<Estudiante> listaEstudiantesCurso = estudianteService.buscarEstudiantesPorCurso(curso);
+        System.out.println(listaEstudiantesCurso);
+        return listaEstudiantesCurso;
+    }
+
+
 }

@@ -15,6 +15,8 @@ public interface EstudianteService {
 
     void borrarEstudiante(Long id);
 
+
+
     Estudiante editarEstudiantePorId(Long id, Estudiante estudianteActualizado);
 
 }

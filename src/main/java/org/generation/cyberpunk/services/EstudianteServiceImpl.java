@@ -80,4 +80,17 @@ public class EstudianteServiceImpl implements EstudianteService {
             return null;
         }
     }
+
+    public Estudiante buscarEstudiantePorNombre(String nombre) {
+        Estudiante estudiantePorNombre = estudianteRepository.findEstudianteByEstudianteNombre(nombre);
+        return estudiantePorNombre;
+    }
+
+    public List<Estudiante> buscarEstudiantesPorCurso(String cursoNombre) {
+        List<Estudiante> estudiantesCurso = estudianteRepository.findAllByNombreCurso(cursoNombre);
+        return estudiantesCurso;
+    }
+
+
+
 }
